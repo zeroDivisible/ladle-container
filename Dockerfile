@@ -4,8 +4,7 @@ FROM centos:7
 RUN yum -y install epel-release
 
 # Java
-RUN yum -y install \
-        sudo java-1.7.0-openjdk \
+RUN yum -y install java-1.7.0-openjdk \
 
 # supervisord
 RUN yum -y install supervisor
@@ -18,9 +17,6 @@ RUN yum clean -y all
 
 # Install Ladle
 RUN gem install ladle
-
-# To avoid error: "sudo: sorry, you must have a tty to run sudo"
-RUN sed -i -e "s/Defaults    requiretty.*/ #Defaults    requiretty/g" /etc/sudoers
 
 # Copy the start script for Ladle
 COPY files/run_ladle.rb /usr/bin/run_ladle.rb
