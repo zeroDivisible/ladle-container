@@ -17,6 +17,7 @@ RUN yum -y install openldap-clients
 
 # Clean the cache
 RUN yum clean -y all
+RUN rm -rf /var/cache/yum
 
 # Install Ladle
 RUN gem install ladle
