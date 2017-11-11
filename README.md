@@ -19,7 +19,7 @@ docker run --name ladle \
            -p '8389:8389' \
            -v /full/path/to/local/ldif.file:/data/users.ldif \
            -e LADLE_LDAP_DOMAIN='dc=example,dc=com' \
-           -d ladle
+           -d zerodivisible/ladle
 ```
 
 

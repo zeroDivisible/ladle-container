@@ -12,11 +12,16 @@ RUN yum -y install supervisor
 # Ruby
 RUN yum -y install ruby
 
+# Extra clients (ldapsearch), to help with debugging
+RUN yum -y install openldap-clients
+
 # Clean the cache
 RUN yum clean -y all
 
 # Install Ladle
 RUN gem install ladle
+
+RUN mkdir /data
 
 # Copy the start script for Ladle
 COPY files/run_ladle.rb /usr/bin/run_ladle.rb
